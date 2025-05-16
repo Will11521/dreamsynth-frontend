@@ -1,0 +1,200 @@
+/* 🌌 Global Reset & Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #0d0d0d;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* 🎨 Spline Background */
+  .spline-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+  }
+  
+  spline-viewer {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  /* ✨ Parallax Glow Overlay */
+  .parallax-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+    z-index: -1;
+  }
+  
+  /* 🧠 Main Container */
+  main {
+    max-width: 800px;
+    margin: 7vh auto 6rem;
+    padding: 0 2rem;
+    text-align: center;
+  }
+  
+  /* 🔮 Titles */
+  .fade-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    color: #ccc;
+  }
+  
+  /* 🎤 Buttons */
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  
+  button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    background: #ffffff15;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  
+  button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  button:hover:enabled {
+    background: #ffffff25;
+  }
+  
+  /* 💬 Transcript */
+  #transcript,
+  #dream-status {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #9fcaff;
+  }
+  
+  /* 🌠 Dream Output */
+  #dream-text {
+    margin-top: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: left;
+    white-space: pre-line;
+    color: #f8f8f8;
+  }
+  
+  /* 🌟 Why Join + Coming Soon Sections */
+  .why-join,
+  .coming-soon {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    text-align: center;
+  }
+  
+  .why-join h2,
+  .coming-soon h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .benefits,
+  .soon-features {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .benefit,
+  .soon-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: left;
+  }
+  
+  .benefit h3,
+  .soon-item h3 {
+    font-size: 1.2rem;
+    color: #aadfff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .benefit p,
+  .soon-item p {
+    font-weight: 300;
+    line-height: 1.6;
+    color: #ccc;
+  }
+  
+  /* 📱 Mobile Adjustments */
+  @media (max-width: 768px) {
+    main {
+      padding: 0 1rem;
+    }
+  
+    .btn-group {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    #dream-text {
+      font-size: 1rem;
+    }
+  
+    .benefits,
+    .soon-features {
+      gap: 1.5rem;
+    }
+  }
+  
+  /* 🔗 Footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  footer a {
+    color: #aadfff;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
