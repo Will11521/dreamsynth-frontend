@@ -197,4 +197,70 @@
   footer a:hover {
     text-decoration: underline;
   }
+  /* 🌌 Dreampool Section */
+.dreampool {
+    max-width: 1000px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+    text-align: center;
+  }
+  
+  .dreampool h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .dreampool-sub {
+    font-size: 1rem;
+    color: #bbb;
+    margin-bottom: 2rem;
+  }
+  
+  .dream-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+  
+  .dream-card {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: left;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .dream-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+  }
+  
+  .dream-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: #aadfff;
+  }
+  
+  .mood-tag {
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 0.2rem 0.8rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  .dream-snippet {
+    font-size: 0.95rem;
+    color: #ddd;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+  }
+  
+  .timestamp {
+    font-size: 0.8rem;
+    color: #888;
+  }
   
