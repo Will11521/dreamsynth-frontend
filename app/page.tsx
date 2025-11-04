@@ -195,7 +195,7 @@ export default function HomePage() {
                 </Link>{" "}
                 and find us on{" "}
                 <Link
-                  href="https://www.linkedin.com/in/williamjeetsingh/"
+                  href="https://www.linkedin.com/in/williamjeetsingh2004"
                   className="text-ink underline underline-offset-4"
                 >
                   LinkedIn
