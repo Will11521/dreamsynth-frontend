@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: only light;
+    background-color: #f2efe9;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: #f2efe9;
+    background-image: url("/noise.png"), radial-gradient(circle at top, rgba(107, 107, 255, 0.18), rgba(242, 239, 233, 0.95) 55%);
+    background-size: 512px 512px, cover;
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background-color: rgba(107, 107, 255, 0.25);
+    color: #191919;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
