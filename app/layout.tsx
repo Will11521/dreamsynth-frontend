@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "@/styles/globals.css";
 import Providers from "./providers";
 import { SeoAnalytics } from "@/components/seo-analytics";
@@ -56,9 +57,23 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const gaMeasurementId = "G-2YJMTVYTFM";
+
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="bg-background font-sans text-ink antialiased">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaMeasurementId}');
+          `}
+        </Script>
         <Providers>
           <SeoAnalytics />
           {children}

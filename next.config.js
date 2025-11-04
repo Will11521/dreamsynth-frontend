@@ -9,7 +9,7 @@ const securityHeaders = [
   {
     key: "Content-Security-Policy",
     value:
-      "default-src 'self'; img-src 'self' data: blob: https://images.typeform.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com https://embed.typeform.com; font-src 'self' fonts.gstatic.com https://embed.typeform.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' vercel.live https://embed.typeform.com; connect-src 'self' https:; frame-src 'self' https://form.typeform.com https://embed.typeform.com; frame-ancestors 'self';"
+      "default-src 'self'; img-src 'self' data: blob: https://images.typeform.com https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com https://embed.typeform.com; font-src 'self' fonts.gstatic.com https://embed.typeform.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' vercel.live https://embed.typeform.com https://www.googletagmanager.com; connect-src 'self' https: https://www.google-analytics.com https://www.googletagmanager.com; frame-src 'self' https://form.typeform.com https://embed.typeform.com; frame-ancestors 'self';"
   }
 ];
 
