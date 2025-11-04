@@ -88,33 +88,12 @@ export async function POST(request: NextRequest) {
     return errorResponse(429);
   }
 
-  try {
-    const supabase = getServiceRoleClient();
+  const supabase = getServiceRoleClient();
+  const formspreeUrl = process.env.FORMSPREE_URL;
 
-    if (supabase) {
-      const nowIso = new Date().toISOString();
-      const { error } = await supabase
-        .from("waitlist")
-        .upsert(
-          {
-            email,
-            source: "web",
-            updated_at: nowIso
-          },
-          { onConflict: "email" }
-        );
-
-      if (error) {
-        throw error;
-      }
-
-      return NextResponse.json({ ok: true, message: "Check your inbox." });
-    }
-
-    const formspreeUrl = process.env.FORMSPREE_URL;
-
+  const attemptFormspree = async () => {
     if (!formspreeUrl) {
-      return errorResponse(500);
+      return false;
     }
 
     const formResponse = await fetch(formspreeUrl, {
@@ -127,14 +106,48 @@ export async function POST(request: NextRequest) {
     });
 
     if (!formResponse.ok) {
-      return errorResponse(502);
+      console.error("[waitlist] formspree error", formResponse.status, await formResponse.text().catch(() => "n/a"));
+      return false;
     }
 
-    return NextResponse.json({ ok: true, message: "Check your inbox." });
-  } catch (error) {
-    console.error("[waitlist] handler error", error);
-    return errorResponse(500);
+    return true;
+  };
+
+  if (supabase) {
+    try {
+      const { error } = await supabase
+        .from("waitlist")
+        .upsert(
+          {
+            email,
+            source: "web"
+          },
+          { onConflict: "email" }
+        );
+
+      if (!error) {
+        return NextResponse.json({ ok: true, message: "Check your inbox." });
+      }
+
+      console.error("[waitlist] supabase error", error);
+    } catch (error) {
+      console.error("[waitlist] supabase exception", error);
+    }
   }
+
+  try {
+    const sent = await attemptFormspree();
+    if (sent) {
+      return NextResponse.json({
+        ok: true,
+        message: "Check your inbox."
+      });
+    }
+  } catch (error) {
+    console.error("[waitlist] formspree exception", error);
+  }
+
+  return errorResponse(500);
 }
 
 export function GET() {
